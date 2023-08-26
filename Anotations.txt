@@ -1,0 +1,57 @@
+JEST - 
+
+Test Structure
+Jest follows a specific folder structure for tests. Typically, you place your tests within a directory called __tests__, or alongside the file being tested with the .test.js or .spec.js suffix.
+
+I created a file named math.js, defined a function that adds a+b and exported it. I then created another file named math.test.js, where I used a const require to import the add function from the math file. I used the test function to test what I wanted, in this case, adding 1 + 2 to equal 3. I then used npx jest to run the test and observed the console output.
+
+Matchers
+Matchers are functions provided by Jest that allow you to check if values meet certain conditions. Some examples include:
+
+toBe(expectedValue): checks if the value is strictly equal to the expected value.
+toEqual(expectedValue): checks if the value is equal to the expected value (deep compares objects and arrays).
+toBeTruthy(): checks if the value is truthy.
+toBeFalsy(): checks if the value is falsy.
+toContain(expectedValue): checks if an array or string contains the expected value.
+And many more.
+
+Tests for React Components
+When testing React components, you can use the @testing-library/react library in conjunction with Jest to create tests that simulate user interactions with your components.
+
+-----------------------------------------------------------------------------------------------------------
+
+The describe block serves as an overview of what the test will focus on.
+Inside describe, it is used to specify the specific test case.
+Within the test case, a const is used to select an element by its text content. Afterward, the component is rendered, and a prop, such as name="John," can be passed to the render function.
+
+.spec can be used for unit tests.
+.test is used for integrated tests.
+
+The describe block serves as a container for multiple test cases.
+Expect represents the expected outcome.
+(this applies to Jest.)
+
+In Testing Library, we can interact with the DOM by rendering components and testing them.
+We use render<App> to render our App component and the screen object to select elements using text content, such as "hello world."
+
+To simulate button clicks, fireEvent is used to trigger events.
+fireEvent.click(getByText(/change message/)) (using / disregards case sensitivity)
+screen.getByRole('button', {name: 'Click me'}) uses role to select elements like buttons, divs, h1, or p.
+
+To check if a function was called, const onClick = jest.fn(); creates a Jest mock function.
+expect(onClick).toHaveBeenCalled(); is used to verify if the function was indeed called.
+
+The queryByText doesn't cause test failures when it doesn't find the expected content.
+Expectations can be inverted using .not, e.g., expect(oldMessage).not.toBeInTheDocument();
+
+Props can be passed to components using a Props object, similar to Node.js.
+   const props = {
+    name: 'João',
+    age: 25
+  };
+
+const { getByText } = render(<PropsComponent {...props} />);
+
+To interact with labels, the query change approach can be used, and we can utilize screen.getByLabelText to select labels, instead of relying on roles.
+
+For API interactions, we use async alongside it, always using await to wait for the API. The waitFor function from Testing Library is useful for waiting for a certain period of time.
