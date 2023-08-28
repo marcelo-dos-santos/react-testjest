@@ -18,6 +18,14 @@ Create a test for a React component that conditionally renders elements based on
 Exercise 6: Asynchronous Request Test
 Create a test for a component or function that makes an asynchronous API call. Use async and await to wait for the call to complete and verify if the data is displayed correctly after completion.
 
+Exercise 7: Testing Context
+
+Create a test for a component that uses React's Context API to provide and consume some context. Be sure to verify that the component correctly consumes the context value.
+
+Exercise 8: Testing Form Validations
+
+Create a test for a form component that performs validations on fields. Check that error messages display correctly when fields are filled in incorrectly.
+
 ## Available Scripts
 
 In the project directory, you can run:
